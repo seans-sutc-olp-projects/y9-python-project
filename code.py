@@ -1,32 +1,19 @@
 import turtle
+import buttons
+
+# Function-Shorthands
+dFunct = movement_functions
 
 # Turtles
 drawer = turtle.Turtle()
 drawer.hideturtle()
 panel = turtle.Turtle()
 panelText = turtle.Turtle()
-box = turtle.Turtle()
+panelControlTextArea = turtle.Turtle()
+panelControlTextArea.speed(0)
 panel.speed(0)
-box.speed(0)
 panelText.speed(0)
 drawer.shape("turtle")
-
-# Box
-box.pu()
-box.right(90)
-box.fd(300)
-box.right(90)
-box.fd(150)
-box.right(90)
-box.pd()
-def boxSide():
-    box.fd(300)
-    box.right(90)
-boxSide()
-boxSide()
-boxSide()
-box.fd(300)
-box.hideturtle()
 
 # Panel
 panel.pu()
@@ -63,10 +50,10 @@ drawer.right(90)
 drawer.fd(300)
 drawer.right(180)  
 drawer.showturtle()
+drawer.pd()
 
-
-
-
+# Buttons
+turtle.onkeypress("w", buttons.forward()
 
 
 
