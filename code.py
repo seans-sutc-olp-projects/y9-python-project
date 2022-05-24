@@ -1,5 +1,6 @@
 import turtle
 import buttons
+import movement_functions
 
 # Function-Shorthands
 dFunct = movement_functions
@@ -53,7 +54,8 @@ drawer.showturtle()
 drawer.pd()
 
 # Buttons
-turtle.onkeypress("w", buttons.forward()
+turtle.onkeypress("w", buttons.forwardManager())
 
-
-
+# Infinite Loop
+while True:
+    turtle.onkeypress("w", buttons.forwardManager())
