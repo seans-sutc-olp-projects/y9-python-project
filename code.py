@@ -1,5 +1,4 @@
 import turtle
-import buttons
 import movement_functions
 
 # Function-Shorthands
@@ -8,6 +7,7 @@ dFunct = movement_functions
 # Turtles
 drawer = turtle.Turtle()
 drawer.hideturtle()
+drawer.speed(3)
 panel = turtle.Turtle()
 panelText = turtle.Turtle()
 panelControlTextArea = turtle.Turtle()
@@ -39,10 +39,13 @@ panel.hideturtle()
 # Panel Text
 panelText.pu()
 panelText.left(90)
-panelText.fd(110)
+panelText.fd(140)
 panelText.left(90)
 panelText.fd(180)
-panelText.write("Hello World")
+panelText.write("Drag the turtle to draw! WARNING: dragging too fast will crash the program")
+panelText.right(90)
+panelText.bk(39)
+panelText.write("THIS WILL NOT BE SAVED")
 panelText.hideturtle()
 
 # Drawer
@@ -53,9 +56,6 @@ drawer.right(180)
 drawer.showturtle()
 drawer.pd()
 
-# Buttons
-turtle.onkeypress("w", buttons.forwardManager())
+# Drag code
 
-# Infinite Loop
-while True:
-    turtle.onkeypress("w", buttons.forwardManager())
+drawer.ondrag(drawer.goto)
