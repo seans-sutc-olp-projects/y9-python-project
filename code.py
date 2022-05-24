@@ -1,17 +1,12 @@
 import turtle
-import movement_functions
-
-# Function-Shorthands
-dFunct = movement_functions
 
 # Turtles
+turtle.hideturtle()
 drawer = turtle.Turtle()
 drawer.hideturtle()
 drawer.speed(3)
 panel = turtle.Turtle()
 panelText = turtle.Turtle()
-panelControlTextArea = turtle.Turtle()
-panelControlTextArea.speed(0)
 panel.speed(0)
 panelText.speed(0)
 drawer.shape("turtle")
@@ -57,5 +52,7 @@ drawer.showturtle()
 drawer.pd()
 
 # Drag code
-
 drawer.ondrag(drawer.goto)
+
+# Keepalive
+turtle.mainloop()
