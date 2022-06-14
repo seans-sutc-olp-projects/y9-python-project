@@ -1,5 +1,5 @@
 import turtle
-
+exportArray = []
 # Turtles
 turtle.hideturtle()
 drawer = turtle.Turtle()
@@ -50,9 +50,28 @@ drawer.fd(300)
 drawer.right(180)  
 drawer.showturtle()
 drawer.pd()
-
+# Import code:
+importValue = turtle.textinput("Project", "Enter the exported Array (enter 0 if you have no export)")
+if not importValue == 0:
+    importValue = importValue.replace("[", "")
+    tempValues = importValue.split("] ")
+    formattedInput = []
+    for y in tempValues:
+        y = y.replace("]", "")
+        tempPair = y.split(",")
+        formattedInput.append([float(tempPair[0]), float(tempPair[1])])
+    for x in range(len(formattedInput)-1):
+        drawer.goto(formattedInput[x][0],formattedInput[x][1])
+                    
 # Drag code
-drawer.ondrag(drawer.goto)
+def drag(x,y):
+    global exportArray
+    drawer.goto(x, y)
+    exportArray.append([x, y])
+    print("exportArray: ", exportArray)
+    drawer.ondrag(drag)
 
+drawer.ondrag(drag)
+print("exportArray: ", exportArray)
 # Keepalive
 turtle.mainloop()
