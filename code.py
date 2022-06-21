@@ -31,6 +31,12 @@ panelShortSide()
 panelLongSide()
 panel.hideturtle()
 
+def ruinDrawing():
+    global formattedInput
+    for x in range(len(formattedInput)):
+        for y in range(2):
+            formattedInput[x][y] = int(round(formattedInput[x][y]/25)*25)
+
 # Panel Text
 panelText.pu()
 panelText.left(90)
@@ -52,16 +58,22 @@ drawer.showturtle()
 drawer.pd()
 # Import code:
 importValue = turtle.textinput("Project", "Enter the exported Array (enter 0 if you have no export)")
-if not importValue == 0:
+if not importValue == "0":
     importValue = importValue.replace("[", "")
-    tempValues = importValue.split("] ")
+    importValue = importValue.replace("\n", "")
+    importValue = importValue.replace("'", "")
+    tempValues = importValue.split("], ")
     formattedInput = []
     for y in tempValues:
         y = y.replace("]", "")
         tempPair = y.split(",")
         formattedInput.append([float(tempPair[0]), float(tempPair[1])])
+    #ruinDrawing()
     for x in range(len(formattedInput)-1):
         drawer.goto(formattedInput[x][0],formattedInput[x][1])
+    exportArray = tempValues
+    for z in range(len(exportArray)):
+        exportArray[z] = exportArray[z].replace("'", "")
                     
 # Drag code
 def drag(x,y):
